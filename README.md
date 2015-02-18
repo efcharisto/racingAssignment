@@ -1,11 +1,11 @@
 # racingAssignment
-# racingAssignment
+
 <script>
 
 var Person = function(name, drinks, sobering){
   this.name = name;
-  this.drinks = filterInt(prompt("Enter # of drinks"));
-  this.sobering = filterInt(prompt("How many hours passed?"));
+  this.drinks = parseInt((prompt("Enter # of drinks")), 10);//still not working. returns NaN for all answrs
+  this.sobering = parseInt((prompt("How many hours passed?")), 10);
 
   this.drunkLevel = 0; 
   
@@ -19,18 +19,14 @@ var Person = function(name, drinks, sobering){
   }; 
 }
 
-filterInt = function (value) {
-  if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
-    return Number(value);
-  return NaN;
-  }//found at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+//var num = parseInt(trimmed, 10); found this somewhere online
 
 var JoeShmoe = new Person ("Joe Shmoe");
 var BobShmob = new Person ("Bob Shmob");
 
 var passOut = 15;
 while (JoeShmoe.drunkLevel < passOut || BobShmob.drunkLevel < passOut) {
-	JoeShmoe.drinking();
+  JoeShmoe.drinking();
   BobShmob.drinking();
 
   if (this.drunkLevel >= passOut){
