@@ -12,7 +12,6 @@ var Person = function(name){
       return this.name + "'s alcohol level is: " + this.drunkLevel;
     }
   }
-
   var drinks = parseInt((prompt("Enter # of drinks: ")), 10); 
   var sobering = parseInt((prompt("How many hours passed? ")), 10);
 
@@ -23,21 +22,21 @@ var Person = function(name){
 
 var Joe = new Person ("Joe Shmoe");
 var Bob = new Person ("Bob Shmob");
-var msgGood = (" is not drunk at all! Great!");
-var msgBad = (" passed out. Stop drinking!");
+var msgGood = (" is sober. Good! ");
+var msgBad = (" passed out. Stop drinking! ");
 
-var tipsy = 5; 
-var drunk = 10;
-var passOut = 15; 
+var tipsy = 3; 
+var drunk = 7;
+var passOut = 11; 
 //I know that I could just used numbers and be ok, but I thought that vars are more interesting
 
 if (Joe.drunkLevel < passOut || Bob.drunkLevel < passOut){ 
   Joe.drinking();
   Bob.drinking();
-  if (Joe.drunkLevel >= passOut){
+  if (Joe.drunkLevel > passOut){
     alert(Joe.name + msgBad);
   }
-  if (Bob.drunkLevel >= passOut){
+  if (Bob.drunkLevel > passOut){
     alert(Bob.name + msgBad);
   }
 };
@@ -46,23 +45,23 @@ if (Joe.drunkLevel < passOut && Joe.drunkLevel >= drunk){
     alert(Joe.name + " is drunk. " + Joe.report());
   }else if (Joe.drunkLevel < drunk && Joe.drunkLevel >= tipsy){
     alert(Joe.name + " is tipsy. " + Joe.report());
-  }else{
-    alert(Joe.name + msgGood + " " + Joe.report());
+  }else if (Joe.drunkLevel < tipsy && Joe.drunkLevel >= 0){
+    alert(Joe.name + msgGood + Joe.report());
 }
 
 if (Bob.drunkLevel < passOut && Bob.drunkLevel >= drunk){
     alert(Bob.name + " is drunk. " + Bob.report());
   }else if (Bob.drunkLevel < drunk && Bob.drunkLevel >= tipsy){
     alert(Bob.name + " is tipsy. " + Bob.report());
-  }else{
-    alert(Bob.name + msgGood + " " + Bob.report());
+  }else if (Bob.drunkLevel < tipsy && Bob.drunkLevel >= 0){
+    alert(Bob.name + msgGood + Bob.report());
 }
 
-if (Bob.drunkLevel <= 0){
+if (Bob.drunkLevel < 0){
   alert(Bob.name + msgGood);
 }
-if (Joe.drunkLevel <= 0){ 
+if (Joe.drunkLevel < 0){ 
   alert(Joe.name + msgGood);
-}
+} 
 
 </script>
